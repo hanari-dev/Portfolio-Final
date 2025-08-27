@@ -1,0 +1,161 @@
+/* Base Foundation */
+:root{
+  --text:black;
+  --muted:#666666;
+  --line:#e7e9ee; 
+  --accent:black;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:24px;
+}
+
+*{ box-sizing:border-box }
+html,body{ height:100% }
+html, body, h1, h2, h3, p, ul, li, a, img, section, header, footer, nav { margin:0; padding:0; }
+a{ text-decoration:none; cursor:pointer }
+img{ display:block; max-width:100%; height:auto; pointer-events:none !important; }
+
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:16px; line-height:1.6; color:var(--text); background:#fff;
+}
+
+/* Slide-in Animations that matches main.js timing idea */
+.slide{ animation:slide .6s cubic-bezier(0.2,0.6,0.2,1) both }
+.delay01{ animation-delay:.4s } .delay02{ animation-delay:.8s } .delay03{ animation-delay:.9s }
+@keyframes slide{ from{opacity:0; transform:translateY(10vh)} to{opacity:1; transform:none} }
+
+/* Header */
+.header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; justify-content:space-between; align-items:center;
+  max-width:1200px; margin:0 auto; padding:40px 0;
+}
+.logo, .header a{ color:var(--text); font-weight:600; font-size:1.25rem }
+.header a:hover{ text-decoration:underline }
+@media (max-width:767px){ .header{ padding:20px } .logo, .header a{ font-size:1.1rem } }
+
+/* Hero (Main Page) */
+.hero{
+  max-width:1200px; margin:0 auto;
+  padding:24vh 0 10vh 0; 
+}
+h1{ font-weight:700; font-size:4rem; line-height:120% }
+@media (max-width:767px){ .hero{ margin:0 20px; padding:16vh 0 6vh 0 } h1{ font-size:2.2rem } }
+
+/* Projects Section with Stagger */
+.grid{
+  display:flex; flex-wrap:wrap; justify-content:space-between;
+  max-width:1200px; margin:0 auto;
+}
+.work-item{
+  width:calc(50% - 60px);
+  margin-bottom:100px;
+  text-align:center;
+  display:inline-block;
+}
+.work-item:nth-child(2n-2){
+  position:relative;
+  top:300px;                 
+}
+
+.work-item-image{
+  border-radius:var(--radius);
+  overflow:hidden;
+  height:640px;
+  box-shadow:var(--shadow);
+  transition:transform .8s cubic-bezier(0.2,0.6,0.2,1);
+}
+.work-item-image:hover{ transform:scale(.95) }
+.work-item img{ width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(0.2,0.6,0.2,1) }
+.work-item:hover img{ transform:scale(1.1) }
+
+.work-item-info{ text-align:center; margin-top:24px }
+.work-item-company{ font-weight:600; font-size:1.25rem; line-height:160% }
+.work-item-description{ color:var(--muted); font-weight:400; font-size:1.05rem }
+
+/* Removed default link blue in project tiles */
+.work-item,
+.work-item-info,
+.work-item-info a {
+  color: var(--text);      
+}
+
+.work-item a {
+  text-decoration: none;   
+}
+
+/* Mobile Grid Reset */
+@media (max-width:767px){
+  .grid{ padding:20px }
+  .work-item{ width:100%; margin-bottom:40px }
+  .work-item:nth-child(2n-2){ top:0 }
+  .work-item-image{ height:480px }
+  .work-item-info{ margin-top:12px }
+}
+
+/* Shared Section Layout (About, Contact, Mini About Me) */
+.section{
+  max-width:760px; margin:0 auto;
+  padding:20vh 0 12vh 0;    
+}
+.section h1{
+  font-size:3rem; font-weight:700; margin-bottom:2rem;
+}
+h2{ font-size:2rem; font-weight:700; margin:2rem 0 1rem }
+.section p {
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+/* Lead Paragraph */
+.lead{ font-size:1.25rem; color:#333; margin-bottom:1.5rem }
+
+/* CTA */
+.cta{ margin-top:1.5rem }
+
+/* Button */
+.btn{
+  display:inline-block; background:black; color:white; font-weight:700;
+  padding:.75rem 1.2rem; border-radius:999px;
+  transition:background .25s ease;
+}
+.btn:hover{ background:black }
+
+/* Timeline (About Section) */
+.timeline h3{ margin:.1rem 0 .35rem }
+.timeline p{ margin:0; color:#333 }
+
+.timeline {
+  list-style: none;   /* remove bullets */
+  padding: 0;         /* remove left indentation */
+  margin: 2rem 0;     /* same vertical spacing as paragraphs */
+  display: grid;
+  gap: 1rem;
+}
+.timeline li {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  box-shadow: var(--shadow);
+  margin: 0;          /* no extra indent */
+}
+
+/* Forms (Contact Section) */
+.form{ display:grid; gap:1.2rem }
+.field{ display:grid; gap:.5rem }
+label{ font-weight:600 }
+input, textarea{
+  width:100%; padding:.85rem; border:1px solid #dfe3ea; border-radius:10px; font:inherit
+}
+textarea{ resize:vertical }
+.error{ color:#b00020; min-height:1rem }
+.muted{ color:var(--muted) }
+
+/* Footer */
+.footer{ max-width:760px; margin:0 auto; color:#888; font-size:.9rem; padding:40px }
+@media (max-width:767px){ .footer{ max-width:100%; padding:20px } }

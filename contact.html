@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact · Ari Han</title>
+
+  <!-- Emoji Favicon -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <text y='.9em' font-size='90'>✨</text>
+  </svg>">
+
+  <!-- External Stylesheet for CSS, External Deferred JavaScript file -->
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="logo">Ari Han</a>
+    <nav class="nav">
+      <a href="about.html">About</a>
+      <a class="active" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Contact Form -->
+  <section class="section">
+    <h1>Contact</h1>
+
+    <form id="contactForm" class="form" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Full Name" required/>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@email.com" required/>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell me about your projects, ideas, inspirations, or your favorite food!" required></textarea>
+        <small class="error" aria-live="polite"></small>
+      </div>
+
+      <button class="btn" type="submit">Send</button>
+      <p class="muted">Prefer email? <a href="mailto:ari.han.inbox@gmail.com">ari.han.inbox@gmail.com</a></p>
+    </form>
+  </section>
+
+  <footer class="footer">© Ari Han 2025</footer>
+</body>
+</html>
